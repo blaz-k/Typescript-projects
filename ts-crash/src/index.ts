@@ -48,16 +48,99 @@ const user: User = {
 // Type Assertion
 
 let cid: any = 1
- let customerId = cid as number 
+let customerId = cid as number 
 
- // Functions
+// Functions
 
- function addNum(x: number, y: number): number {
-     return x+y
- }
+function addNum(x: number, y: number): number {
+    return x+y
+}
 
- // Void
+// Void
 
- function log(message: string|number):void{
-     console.log(message)
- }
+function log(message: string|number):void{
+    console.log(message)
+}
+
+
+// Interfaces
+
+interface IUser {
+    id: number
+    name: string
+    age?: number
+    readonly height: number
+
+}
+
+const user1: IUser = {
+    height: 178,
+    id: 2,
+    name: "blas"
+}
+
+// Interfaces Function
+interface MathFunct{
+    (x: number, y: number): number
+}
+
+const add: MathFunct = (x: number, y: number): number => x+y
+
+// Classes
+ 
+class Person {
+    id: number
+    name: string
+    
+    constructor(id: number, name: string){
+        this.id = id
+        this.name = name
+    }
+}
+
+const blaz =  new Person(1, "Blaz")
+const joze = new Person(5, "josko")
+console.log(blaz, joze)
+
+
+// Implementing Interface in classes
+interface IPerson {
+    id: number
+    name: string
+    register(): string
+} 
+
+class Oseba implements IPerson {
+    id: number
+    name: string
+    
+    constructor(id: number, name: string){
+        this.id = id
+        this.name = name
+    }
+    
+    register(){
+        return `${this.name} is now registered`
+    }
+}
+
+// Extending classes
+class Employee extends Person{
+    position: string
+
+    constructor(id: number, name:string, position: string){
+        super(id, name)
+        this.position = position
+    }
+
+}
+
+// Generics
+
+function getArray<T>(items: T[]):T[]{
+    return new Array().concat(items)
+}
+
+let numArray = getArray<number>([1,2,3,4])
+let strArray = getArray<string>(["one", "two", "three"])
+

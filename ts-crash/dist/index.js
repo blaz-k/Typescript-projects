@@ -41,3 +41,41 @@ function addNum(x, y) {
 function log(message) {
     console.log(message);
 }
+const user1 = {
+    height: 178,
+    id: 2,
+    name: "blas"
+};
+const add = (x, y) => x + y;
+// Classes
+class Person {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+const blaz = new Person(1, "Blaz");
+const joze = new Person(5, "josko");
+console.log(blaz, joze);
+class Oseba {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+    register() {
+        return `${this.name} is now registered`;
+    }
+}
+// Extending classes
+class Employee extends Person {
+    constructor(id, name, position) {
+        super(id, name);
+        this.position = position;
+    }
+}
+// Generics
+function getArray(items) {
+    return new Array().concat(items);
+}
+let numArray = getArray([1, 2, 3, 4]);
+let strArray = getArray(["one", "two", "three"]);
